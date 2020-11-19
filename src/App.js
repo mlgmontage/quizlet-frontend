@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import questions from "./data/questions";
-import Questions from "./components/questions";
+import Questions from "./components/questionsList";
 
 class App extends Component {
   state = {};
