@@ -12,7 +12,7 @@ class Question extends Component {
               <input
                 className="form-check-input"
                 type="radio"
-                name={this.props.question}
+                name={this.props.question.question}
                 id={answer.answer}
               />
               <label className="form-check-label" htmlFor={answer.answer}>

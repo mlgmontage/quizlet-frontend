@@ -1,6 +1,6 @@
 // Data modeling
 
-export default [
+const questions = [
   {
     question:
       "In the UK, the abbreviation NHS stands for National 'what' Service?",
@@ -22,3 +22,4 @@ export default [
     ],
   },
 ];
+export default questions;
