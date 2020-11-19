@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import questions from "./data/questions";
+import Questions from "./components/questions";
 
 class App extends Component {
   state = {};
@@ -11,6 +13,9 @@ class App extends Component {
           </h1>
           <h1 className="text-center">Quizlet</h1>
         </header>
+        <div className="container">
+          <Questions questions={questions} />
+        </div>
       </div>
     );
   }
