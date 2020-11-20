@@ -15,6 +15,7 @@ class Questions extends Component {
             key={v1()}
             question={question}
             index={inx}
+            highlight={this.props.highlight}
           />
         ))}
       </div>

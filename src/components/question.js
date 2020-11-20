@@ -22,7 +22,15 @@ class Question extends Component {
                   }
                   value={answer.answer}
                 />
-                {answer.answer}
+                <span
+                  className={
+                    this.props.highlight && answer.isCorrect
+                      ? "text-success"
+                      : ""
+                  }
+                >
+                  {answer.answer}
+                </span>
               </label>
             </div>
           ))}
