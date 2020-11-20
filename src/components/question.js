@@ -6,16 +6,22 @@ class Question extends Component {
     return (
       <div>
         <div>
-          <div className="text-bold my-3">{this.props.question.question}</div>
+          <div className="text-bold my-3">
+            {this.props.index + 1}. {this.props.question.question}
+          </div>
           {this.props.question.answers.map((answer) => (
             <div className="form-check" key={v1()}>
-              <input
-                className="form-check-input"
-                type="radio"
-                name={this.props.question.question}
-                id={answer.answer}
-              />
-              <label className="form-check-label" htmlFor={answer.answer}>
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name={this.props.question.question}
+                  checked={answer === this.props.userAnswers[this.props.index]}
+                  onChange={() =>
+                    this.props.selectAnswer(this.props.index, answer)
+                  }
+                  value={answer.answer}
+                />
                 {answer.answer}
               </label>
             </div>

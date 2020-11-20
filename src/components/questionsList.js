@@ -8,8 +8,14 @@ class Questions extends Component {
     return (
       <div className="col-md-7 m-auto">
         <h2 className="text-center my-3">Question</h2>
-        {this.props.questions.map((question) => (
-          <Question key={v1()} question={question} />
+        {this.props.questions.map((question, inx) => (
+          <Question
+            selectAnswer={this.props.selectAnswer}
+            userAnswers={this.props.userAnswers}
+            key={v1()}
+            question={question}
+            index={inx}
+          />
         ))}
       </div>
     );
