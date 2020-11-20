@@ -6,9 +6,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.selectAnswer = this.selectAnswer.bind(this);
+    this.showOrHideResults = this.showOrHideResults.bind(this);
+
     this.state = {
       userAnswers: new Array(questions.length),
+      resultsBox: false,
     };
+  }
+
+  showOrHideResults() {
+    if (this.state.userAnswers.length === questions.length) {
+      this.setState({
+        resultsBox: !this.state.resultsBox,
+      });
+    } else {
+      alert("Answer to all questions");
+    }
   }
 
   selectAnswer(questionNumber, answer) {
@@ -35,6 +48,27 @@ class App extends Component {
             userAnswers={this.state.userAnswers}
             questions={questions}
           />
+
+          <div className="text-center my-3">
+            <button
+              onClick={this.showOrHideResults}
+              className="btn btn-secondary "
+            >
+              {this.state.resultsBox ? "Hide results" : "Show results"}
+            </button>
+          </div>
+        </div>
+
+        <div
+          className="text-center alert alert-warning col-md-6 m-auto"
+          style={{ display: this.state.resultsBox ? "block" : "none" }}
+        >
+          {
+            this.state.userAnswers.filter(
+              (answer) => answer && answer.isCorrect
+            ).length
+          }{" "}
+          out of {questions.length}
         </div>
       </div>
     );
